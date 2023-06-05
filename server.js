@@ -8,7 +8,7 @@ const port = 4000;
 app.use(express.urlencoded())
 
 
-app.get("/", (req, res) => {
+app.get("/login.html", (req, res) => {
     res.sendFile(path.resolve("public/login.html"));
     
 });
@@ -21,6 +21,8 @@ app.post("/index.html", (req, res) => {
         return res.sendFile(path.resolve("public/index.html"));
     } else if (benutzernamen === 'felix' && passwortn === 'felixistcool') {
         return res.sendFile(path.resolve("public/felix.html"))
+    } else {
+
     }
     res.sendFile(path.resolve("public/login.html"));
 
