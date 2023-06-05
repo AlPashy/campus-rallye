@@ -8,7 +8,7 @@ const port = 4000;
 app.use(express.urlencoded())
 
 
-app.get("https://alpashy.github.io/campus-rallye/", (req, res) => {
+app.get("/", (req, res) => {
     res.sendFile(path.resolve("public/login.html"));
     
 });
