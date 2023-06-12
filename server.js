@@ -19,8 +19,8 @@ app.post("/index.html", (req, res) => {
     const passwortn = req.body.passwort;
 
     if(benutzernamen === 'alper' && passwortn === 'masallah') {
-        return res.sendFile(path.resolve("public/index.html"));
-    } else if (benutzernamen === 'felix' && passwortn === 'felixistcool') {
+        return res.sendFile(path.resolve("public/felix.html"));
+    } else if (benutzernamen === 'felix' && passwortn === 'admin') {
         return res.sendFile(path.resolve("public/felix.html"))
     } else {
         return res.sendFile(path.resolve("public/login.html"));
