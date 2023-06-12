@@ -8,7 +8,7 @@ const port = 4001;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const dataFilePath = join(__dirname, 'data.json');
+const dataFilePath = join(__dirname, '/public/data.json');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(join(__dirname, 'public')));
