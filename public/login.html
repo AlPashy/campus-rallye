@@ -41,11 +41,14 @@
 
         input[type="text"],
         input[type="password"] {
-            width: 100%;
+            width: 50%;
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 3px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         button {
@@ -61,16 +64,20 @@
         button:hover {
             background-color: darkblue;
         }
+
+        .center {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Login</h1>
         <form id="loginForm">
-            <label>Benutzername</label>
-            <input name="benutzername" id="username" placeholder="Bitte geben Sie einen Benutzernamen ein" type="text">
-            <label>Passwort</label>
-            <input name="passwort" id="password" placeholder="Bitte geben Sie ein Passwort ein" type="password">
+            <label class="center">Benutzername</label>
+            <input name="benutzername" id="username" placeholder="Benutzername eingeben" type="text">
+            <label class="center">Passwort</label>
+            <input name="passwort" id="password" placeholder="Passwort eingeben" type="password">
             <button type="submit">Einloggen</button>
         </form>
     </div>
