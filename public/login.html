@@ -10,70 +10,88 @@
 
     <style>
         body {
-    font-family: Arial, sans-serif;
-    background-color: turquoise;
-    margin: 0;
-    padding: 0;
-}
+            font-family: Arial, sans-serif;
+            background-color: turquoise;
+            margin: 0;
+            padding: 0;
+        }
 
-.container {
-    width: 400px;
-    margin: 100px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        .container {
+            width: 400px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-h1 {
-    text-align: center;
-}
+        h1 {
+            text-align: center;
+        }
 
-form {
-    margin-top: 20px;
-}
+        form {
+            margin-top: 20px;
+        }
 
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
 
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: blue;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
 
-button:hover {
-    background-color: darkblue;
-}
+        button:hover {
+            background-color: darkblue;
+        }
     </style>
 </head>
 <body>
-   
-
     <div class="container">
         <h1>Login</h1>
-        <form action="index.html" method="post">
+        <form id="loginForm">
             <label>Benutzername</label>
-            <input name="benutzername" placeholder="Bitte geben Sie einen Benutzernamen ein" type="text">
+            <input name="benutzername" id="username" placeholder="Bitte geben Sie einen Benutzernamen ein" type="text">
             <label>Passwort</label>
-            <input name="passwort" placeholder="Bitte geben Sie ein Passwort ein" type="password">
-            <button>Einloggen</button>
+            <input name="passwort" id="password" placeholder="Bitte geben Sie ein Passwort ein" type="password">
+            <button type="submit">Einloggen</button>
         </form>
     </div>
+
+    <script>
+        var loginForm = document.getElementById("loginForm");
+
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Überprüfe die Benutzerdaten (hier als Beispiel ist der Benutzername "admin" und das Passwort "password")
+            if (username === "admin" && password === "password") {
+                // Weiterleitung zur Challenge-Seite (hier als Beispiel wird die Seite "challenge.html" geöffnet)
+                window.location.href = "challengetemplate.html";
+            } else {
+                alert("Ungültiger Benutzername oder Passwort. Bitte versuchen Sie es erneut.");
+            }
+        });
+    </script>
 </body>
 </html>
