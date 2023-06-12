@@ -1,3 +1,4 @@
+import { error } from 'console';
 import express from 'express';
 import path from 'path';
 
@@ -22,9 +23,9 @@ app.post("/index.html", (req, res) => {
     } else if (benutzernamen === 'felix' && passwortn === 'felixistcool') {
         return res.sendFile(path.resolve("public/felix.html"))
     } else {
-
+        res.sendFile(path.resolve("public/login.html"));
     }
-    res.sendFile(path.resolve("public/login.html"));
+  
 
    //app.use(express.static('public/index.html'));
 });

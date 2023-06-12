@@ -5,18 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="loginStyle.css">
+    <link rel="stylesheet" href="styleLogin.css">
+    <script src="loginLogic.js"></script>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: turquoise;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 400px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+    </style>
 </head>
 <body>
-    <h1>Das ist ein Login</h1>
+   
 
-<form action="index.html" method="post">
-
-    <label >Benutzername</label>
-    <input name="benutzername" placeholder="Bitte geben sie einen Benutzernamen ein" type="text">
-    <label>Passwort</label>
-    <input name="passwort" placeholder="Bittte geben sie ein Passwort ein" type="text">
-    <button>Einloggen</button>
-</form>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="index.html" method="post">
+            <label>Benutzername</label>
+            <input name="benutzername" placeholder="Bitte geben Sie einen Benutzernamen ein" type="text">
+            <label>Passwort</label>
+            <input name="passwort" placeholder="Bitte geben Sie ein Passwort ein" type="password">
+            <button>Einloggen</button>
+        </form>
+    </div>
 </body>
 </html>
