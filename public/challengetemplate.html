@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Challenge Title</h1>
+        <p>Challenge Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Instructions:</p>
+        <ol>
+            <li>Step 1: Do something</li>
+            <li>Step 2: Do something else</li>
+            <li>Step 3: Do one more thing</li>
+        </ol>
+        <form action="#" method="post">
+            <label for="result">Enter your result:</label>
+            <input type="text" id="result" name="result" placeholder="Enter your result" required>
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+        var challengeForm = document.getElementById("challengeForm");
+        var nextButton = document.getElementById("nextButton");
+
+        challengeForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var result = document.getElementById("result").value;
+            // Hier kannst du die Ergebnisse verarbeiten oder validieren
+
+            // Speichern der Ergebnisse im localStorage
+            var challengeResults = JSON.parse(localStorage.getItem("challengeResults")) || [];
+            challengeResults.push(result);
+            localStorage.setItem("challengeResults", JSON.stringify(challengeResults));
+
+            // Anzeigen des nächsten Buttons, um zur nächsten Challenge zu gelangen
+            nextButton.style.display = "block";
+
+            console.log("Ergebnis:", result); // Ergebnis auf der Konsole ausgeben
+        });
+
+        nextButton.addEventListener("click", function() {
+            // Hier kannst du weitere Aktionen ausführen, bevor zur nächsten Challenge gewechselt wird
+
+            // Weiterleitung zur nächsten Challenge-Seite oder dynamische Aktualisierung des Inhalts
+            // Hier ein Beispiel, wie du auf die nächste Challenge-Seite weiterleiten kannst
+            var activeChallengeIndex = parseInt(localStorage.getItem("activeChallengeIndex")) || 0;
+            activeChallengeIndex++;
+            localStorage.setItem("activeChallengeIndex", activeChallengeIndex.toString());
+            window.location.href = "challenge" + activeChallengeIndex + ".html";
+        });
+
+        </script>
+
+    </div>
+</body>
+</html>
