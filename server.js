@@ -23,7 +23,7 @@ app.post("/index.html", (req, res) => {
     } else if (benutzernamen === 'felix' && passwortn === 'felixistcool') {
         return res.sendFile(path.resolve("public/felix.html"))
     } else {
-        res.sendFile(path.resolve("public/login.html"));
+        return res.sendFile(path.resolve("public/login.html"));
     }
   
 
