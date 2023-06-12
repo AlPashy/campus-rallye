@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'public', 'login.html'));
 });
 
+app.get('/anzeigeErgebnisse', (req, res) => {
+  res.sendFile(join(__dirname, 'public', 'anzeigeErgebnisse.html'));
+});
+
 app.post('/speichern', (req, res) => {
   const eingabe = req.body.eingabe;
 
