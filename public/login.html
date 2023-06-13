@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,6 +71,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Login</h1>
@@ -92,13 +94,25 @@
             var password = document.getElementById("password").value;
 
             // Überprüfe die Benutzerdaten (hier als Beispiel ist der Benutzername "admin" und das Passwort "password")
-            if (username === "admin" && password === "password") {
+            if (username === "gruppe1" && password === "password") {
                 // Weiterleitung zur Challenge-Seite (hier als Beispiel wird die Seite "challenge.html" geöffnet)
-                window.location.href = "challengetemplate.html";
-            } else {
-                alert("Ungültiger Benutzername oder Passwort. Bitte versuchen Sie es erneut.");
+                window.location.href = "ausfuellenErgebnisse1.html";
+            } else if (username === "gruppe2" && password === "password") {
+                window.location.href = "ausfuellenErgebnisse2.html";
+            } else if (username === "gruppe3" && password === "password") {
+                window.location.href = "ausfuellenErgebnisse3.html";
+            } else if (username === "gruppe4" && password === "password") {
+                window.location.href = "ausfuellenErgebnisse4.html";
+            } else if (username === "gruppe5" && password === "password") {
+                window.location.href = "ausfuellenErgebnisse5.html";
+            } else if (username === "gruppe6" && password === "password") {
+                window.location.href = "ausfuellenErgebnisse6.html";
+            }
+            else {
+                alert("Ungültiger Benutzername oder Passwort. Bitte versuche es erneut.");
             }
         });
     </script>
 </body>
+
 </html>

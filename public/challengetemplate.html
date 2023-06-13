@@ -13,12 +13,18 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f1f1f1;
+            background-color: beige;
         }
         
         .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .card {
             max-width: 500px;
-            margin: 0 auto;
             padding: 40px;
             background-color: #fff;
             border-radius: 5px;
@@ -34,6 +40,11 @@
             margin-bottom: 10px;
         }
         
+        ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
         input[type="text"] {
             width: 100%;
             padding: 10px;
@@ -45,7 +56,7 @@
         button {
             width: 100%;
             padding: 10px;
-            background-color: #4CAF50;
+            background-color: blue;
             color: #fff;
             border: none;
             border-radius: 3px;
@@ -53,27 +64,32 @@
         }
         
         button:hover {
-            background-color: #45a049;
+            background-color: turquoise;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Challenge Title</h1>
-        <p>Challenge Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <p>Instructions:</p>
-        <ol>
-            <li>Step 1: Do something</li>
-            <li>Step 2: Do something else</li>
-            <li>Step 3: Do one more thing</li>
-        </ol>
-        <form action="/speichern" method="post">
-            <label for="result">Enter your result:</label>
-            <input type="text" id="result" name="eingabe" placeholder="Enter your result" required>
-            <button type="submit" value="Speichern">Submit</button>
-        </form>
-        <script>
-        var challengeForm = document.getElementById("challengeForm");
+        <div class="card">
+            <h1>Challenge Title</h1>
+            <p>Challenge Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Instructions:</p>
+            <ol>
+                <li>Step 1: Do something</li>
+                <li>Step 2: Do something else</li>
+                <li>Step 3: Do one more thing</li>
+            </ol>
+            <form action="/speichern" method="post">
+                <label for="result">Enter your result:</label>
+                <input type="text" id="result" name="eingabe" placeholder="Enter your result" required>
+                <button type="submit" value="Speichern">Submit</button>
+            </form>
+            <button id="nextButton" style="display: none;">Next Challenge</button>
+        </div>
+    </div>
+    
+    <script>
+        var challengeForm = document.querySelector("form");
         var nextButton = document.getElementById("nextButton");
 
         challengeForm.addEventListener("submit", function(event) {
@@ -92,19 +108,4 @@
             console.log("Ergebnis:", result); // Ergebnis auf der Konsole ausgeben
         });
 
-        nextButton.addEventListener("click", function() {
-            // Hier kannst du weitere Aktionen ausführen, bevor zur nächsten Challenge gewechselt wird
-
-            // Weiterleitung zur nächsten Challenge-Seite oder dynamische Aktualisierung des Inhalts
-            // Hier ein Beispiel, wie du auf die nächste Challenge-Seite weiterleiten kannst
-            var activeChallengeIndex = parseInt(localStorage.getItem("activeChallengeIndex")) || 0;
-            activeChallengeIndex++;
-            localStorage.setItem("activeChallengeIndex", activeChallengeIndex.toString());
-            window.location.href = "challenge" + activeChallengeIndex + ".html";
-        });
-
-        </script>
-
-    </div>
-</body>
-</html>
+        nextButton.addEventListener

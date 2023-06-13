@@ -8,7 +8,9 @@ const port = 4001;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 const dataFilePath = join(__dirname, '/public/data.json');
+const dataFolderPath = join(__dirname, 'public', 'data');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(join(__dirname, 'public')));
@@ -17,9 +19,16 @@ app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'public', 'login.html'));
 });
 
-app.get('/anzeigeErgebnisse', (req, res) => {
-  res.sendFile(join(__dirname, 'public', 'anzeigeErgebnisse.html'));
+app.get('/anzeigeAuswertung', (req, res) => {
+  const resultTemplate = fs.readFileSync(join(__dirname, 'public', 'anzeigeAuswertung.html'), 'utf8');
+  res.send(resultTemplate);
 });
+/*
+app.get('/ausfuellenErgebnisse1', (req, res) => {
+  const resultTemplate = fs.readFileSync(join(__dirname, 'public', 'ausfuellenErgebnisse1.html'), 'utf8');
+  res.send(resultTemplate);
+});
+*/
 
 app.post('/speichern', (req, res) => {
   const eingabe = req.body.eingabe;
@@ -42,6 +51,7 @@ app.post('/speichern', (req, res) => {
 
   res.redirect('/');
 });
+
 
 app.listen(port, () => {
   console.log("App is listening on port", port);
