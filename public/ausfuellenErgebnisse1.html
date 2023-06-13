@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Challenge Results</title>
     <style>
         * {
@@ -67,51 +68,89 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Challenge Results</h1>
 
         <div class="challenge">
             <h2 class="challenge-title">Challenge 1</h2>
-            <p class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <input type="text" class="challenge-input" placeholder="Enter your result" required>
-            <button class="submit-button" type="submit">Submit</button>
+            <p class="challenge-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <input id="challengeResult1" type="text" class="challenge-input" placeholder="Enter your result" required />
+            <button class="submit-button" onclick="saveResult(1)">Submit</button>
         </div>
 
         <div class="challenge">
             <h2 class="challenge-title">Challenge 2</h2>
-            <p class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <input type="text" class="challenge-input" placeholder="Enter your result" required>
-            <button class="submit-button" type="submit">Submit</button>
+            <p class="challenge-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <input id="challengeResult2" type="text" class="challenge-input" placeholder="Enter your result" required />
+            <button class="submit-button" onclick="saveResult(2)">Submit</button>
         </div>
 
         <div class="challenge">
             <h2 class="challenge-title">Challenge 3</h2>
-            <p class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <input type="text" class="challenge-input" placeholder="Enter your result" required>
-            <button class="submit-button" type="submit">Submit</button>
+            <p class="challenge-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <input id="challengeResult3" type="text" class="challenge-input" placeholder="Enter your result" required />
+            <button class="submit-button" onclick="saveResult(3)">Submit</button>
         </div>
 
         <div class="challenge">
             <h2 class="challenge-title">Challenge 4</h2>
-            <p class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <input type="text" class="challenge-input" placeholder="Enter your result" required>
-            <button class="submit-button" type="submit">Submit</button>
+            <p class="challenge-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <input id="challengeResult4" type="text" class="challenge-input" placeholder="Enter your result" required />
+            <button class="submit-button" onclick="saveResult(4)">Submit</button>
         </div>
 
         <div class="challenge">
             <h2 class="challenge-title">Challenge 5</h2>
-            <p class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <input type="text" class="challenge-input" placeholder="Enter your result" required>
-            <button class="submit-button" type="submit">Submit</button>
+            <p class="challenge-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <input id="challengeResult5" type="text" class="challenge-input" placeholder="Enter your result" required />
+            <button class="submit-button" onclick="saveResult(5)">Submit</button>
         </div>
 
         <div class="challenge">
             <h2 class="challenge-title">Challenge 6</h2>
-            <p class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <input type="text" class="challenge-input" placeholder="Enter your result" required>
-            <button class="submit-button" type="submit">Submit</button>
+            <p class="challenge-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <input id="challengeResult6" type="text" class="challenge-input" placeholder="Enter your result" required />
+            <button class="submit-button" onclick="saveResult(6)">Submit</button>
         </div>
+
+        <!-- Add more challenges here as needed -->
+
+        <script>
+            function saveResult(challengeNumber) {
+                var challengeResult = document.getElementById("challengeResult" + challengeNumber).value;
+
+                var data = {
+                    "challengeNumber": challengeNumber,
+                    "result": challengeResult
+                };
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/speichern', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        console.log("Result saved successfully.");
+                    }
+                };
+                xhr.send(JSON.stringify(data));
+            }
+
+        </script>
     </div>
 </body>
+
 </html>
