@@ -9,49 +9,61 @@ const port = 4001;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const dataFilePath = join(__dirname, '/public/data.json');
-const dataFolderPath = join(__dirname, 'public', 'data');
+const dataFilePathGruppe1 = join(__dirname, 'public/json', 'gruppe1.json');
+const dataFilePathGruppe2 = join(__dirname, 'public/json', 'gruppe2.json');
+const dataFilePathGruppe3 = join(__dirname, 'public/json', 'gruppe3.json');
+const dataFilePathGruppe4 = join(__dirname, 'public/json', 'gruppe4.json');
+const dataFilePathGruppe5 = join(__dirname, 'public/json', 'gruppe5.json');
+const dataFilePathGruppe6 = join(__dirname, 'public/json', 'gruppe6.json');
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static(join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'public', 'login.html'));
 });
 
-app.get('/anzeigeAuswertung', (req, res) => {
-  const resultTemplate = fs.readFileSync(join(__dirname, 'public', 'anzeigeAuswertung.html'), 'utf8');
-  res.send(resultTemplate);
-});
-/*
-app.get('/ausfuellenErgebnisse1', (req, res) => {
-  const resultTemplate = fs.readFileSync(join(__dirname, 'public', 'ausfuellenErgebnisse1.html'), 'utf8');
-  res.send(resultTemplate);
-});
-*/
 
 app.post('/speichern', (req, res) => {
-  const eingabe = req.body.eingabe;
+  const challengeNumber = req.body.challengeNumber;
+  const result = req.body.result;
 
-  // Lese die vorhandenen Daten aus der JSON-Datei
+  // Read existing data from JSON file
   let jsonData = [];
-  if (fs.existsSync(dataFilePath)) {
-    const data = fs.readFileSync(dataFilePath, 'utf8');
+  if (fs.existsSync(dataFilePathGruppe1)) {
+    const data = fs.readFileSync(dataFilePathGruppe1, 'utf8');
     jsonData = JSON.parse(data);
   }
 
-  // Füge die neue Eingabe den Daten hinzu
+  // Add new result to the data
   if (!Array.isArray(jsonData)) {
     jsonData = []; // Initialize as an empty array if not already
   }
-  jsonData.push(eingabe);
+  switch (challengeNumber) {
+    case 1:
+      jsonData.push({ challenge1: challengeNumber, result: result });
+      break;
+    case 2:
+      jsonData.push({ challenge2: challengeNumber, result: result });
+      break;
+    case 3:
+      jsonData.push({ challenge3: challengeNumber, result: result });
+      break;
+    case 4:
+      jsonData.push({ challenge4: challengeNumber, result: result });
+      break;
+    case 5:
+      jsonData.push({ challenge5: challengeNumber, result: result });
+      break;
+    case 6:
+      jsonData.push({ challenge6: challengeNumber, result: result });
+      break;
+  }
+  // Save the updated data to the JSON file
+  fs.writeFileSync(dataFilePathGruppe1, JSON.stringify(jsonData));
 
-  // Speichere die aktualisierten Daten in der JSON-Datei
-  fs.writeFileSync(dataFilePath, JSON.stringify(jsonData));
-
-  res.redirect('/');
 });
-
 
 app.listen(port, () => {
   console.log("App is listening on port", port);
