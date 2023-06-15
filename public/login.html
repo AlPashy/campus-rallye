@@ -6,69 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="styleLogin.css">
-    <script src="loginLogic.js"></script>
+    <link rel="stylesheet" href="../login-design/login-design.css">
+   
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: turquoise;
-            margin: 0;
-            padding: 0;
-        }
+    font-family: Arial, sans-serif;
+    background-color: turquoise;
+    margin: 0;
+    padding: 0;
+}
 
-        .container {
-            width: 400px;
-            margin: 100px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.container {
+    width: 400px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        h1 {
-            text-align: center;
-        }
+h1 {
+    text-align: center;
+}
 
-        form {
-            margin-top: 20px;
-        }
+form {
+    margin-top: 20px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
 
-        input[type="text"],
-        input[type="password"] {
-            width: 50%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+input[type="text"],
+input[type="password"] {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: blue;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
 
-        button:hover {
-            background-color: darkblue;
-        }
+button:hover {
+    background-color: darkblue;
+}
 
-        .center {
-            text-align: center;
-        }
+.center {
+    text-align: center;
+}
     </style>
 </head>
 
@@ -87,32 +87,34 @@
     <script>
         var loginForm = document.getElementById("loginForm");
 
-        loginForm.addEventListener("submit", function (event) {
-            event.preventDefault();
+loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
 
-            // Überprüfe die Benutzerdaten (hier als Beispiel ist der Benutzername "admin" und das Passwort "password")
-            if (username === "gruppe1" && password === "password") {
-                // Weiterleitung zur Challenge-Seite (hier als Beispiel wird die Seite "challenge.html" geöffnet)
-                window.location.href = "ausfuellenErgebnisse1.html";
-            } else if (username === "gruppe2" && password === "password") {
-                window.location.href = "ausfuellenErgebnisse2.html";
-            } else if (username === "gruppe3" && password === "password") {
-                window.location.href = "ausfuellenErgebnisse3.html";
-            } else if (username === "gruppe4" && password === "password") {
-                window.location.href = "ausfuellenErgebnisse4.html";
-            } else if (username === "gruppe5" && password === "password") {
-                window.location.href = "ausfuellenErgebnisse5.html";
-            } else if (username === "gruppe6" && password === "password") {
-                window.location.href = "ausfuellenErgebnisse6.html";
-            }
-            else {
-                alert("Ungültiger Benutzername oder Passwort. Bitte versuche es erneut.");
-            }
-        });
+    // Überprüfe die Benutzerdaten (hier als Beispiel ist der Benutzername "admin" und das Passwort "password")
+    if (username === "gruppe1" && password === "password") {
+        // Weiterleitung zur Challenge-Seite (hier als Beispiel wird die Seite "challenge.html" geöffnet)
+        window.location.href = "ausfuellenErgebnisse1.html";
+    } else if (username === "gruppe2" && password === "password") {
+        window.location.href = "ausfuellenErgebnisse2.html";
+    } else if (username === "gruppe3" && password === "password") {
+        window.location.href = "ausfuellenErgebnisse3.html";
+    } else if (username === "gruppe4" && password === "password") {
+        window.location.href = "ausfuellenErgebnisse4.html";
+    } else if (username === "gruppe5" && password === "password") {
+        window.location.href = "ausfuellenErgebnisse5.html";
+    } else if (username === "gruppe6" && password === "password") {
+        window.location.href = "ausfuellenErgebnisse6.html";
+    }
+    else {
+        alert("Ungültiger Benutzername oder Passwort. Bitte versuche es erneut.");
+    }
+});
     </script>
+
+    
 </body>
 
 </html>

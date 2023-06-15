@@ -16,54 +16,94 @@ const dataFilePathGruppe4 = join(__dirname, 'public/json', 'gruppe4.json');
 const dataFilePathGruppe5 = join(__dirname, 'public/json', 'gruppe5.json');
 const dataFilePathGruppe6 = join(__dirname, 'public/json', 'gruppe6.json');
 
+const jsonDataGruppe1 = readJsonData(dataFilePathGruppe1);
+const jsonDataGruppe2 = readJsonData(dataFilePathGruppe2);
+const jsonDataGruppe3 = readJsonData(dataFilePathGruppe3);
+const jsonDataGruppe4 = readJsonData(dataFilePathGruppe4);
+const jsonDataGruppe5 = readJsonData(dataFilePathGruppe5);
+const jsonDataGruppe6 = readJsonData(dataFilePathGruppe6);
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(join(__dirname, 'public')));
+app.use(express.static(join(__dirname, 'public/design')));
+app.use(express.static(join(__dirname, 'public/logic')));
+app.use(express.static(join(__dirname, 'public/assets')));
+app.use(express.static(join(__dirname, 'public/resultpage')));
+app.use(express.static(join(__dirname, 'public/challenge')));
+
+
 
 app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'public', 'login.html'));
 });
 
+// ...
 
 app.post('/speichern', (req, res) => {
   const challengeNumber = req.body.challengeNumber;
   const result = req.body.result;
 
-  // Read existing data from JSON file
-  let jsonData = [];
-  if (fs.existsSync(dataFilePathGruppe1)) {
-    const data = fs.readFileSync(dataFilePathGruppe1, 'utf8');
-    jsonData = JSON.parse(data);
-  }
+  saveResult(res, jsonDataGruppe1, dataFilePathGruppe1, challengeNumber, result);
+});
 
+app.post('/speichern2', (req, res) => {
+  const challengeNumber = req.body.challengeNumber;
+  const result = req.body.result;
+
+  saveResult(res, jsonDataGruppe2, dataFilePathGruppe2, challengeNumber, result);
+});
+
+app.post('/speichern3', (req, res) => {
+  const challengeNumber = req.body.challengeNumber;
+  const result = req.body.result;
+
+  saveResult(res, jsonDataGruppe3, dataFilePathGruppe3, challengeNumber, result);
+});
+
+app.post('/speichern4', (req, res) => {
+  const challengeNumber = req.body.challengeNumber;
+  const result = req.body.result;
+
+  saveResult(res, jsonDataGruppe4, dataFilePathGruppe4, challengeNumber, result);
+});
+
+app.post('/speichern5', (req, res) => {
+  const challengeNumber = req.body.challengeNumber;
+  const result = req.body.result;
+
+  saveResult(res, jsonDataGruppe5, dataFilePathGruppe5, challengeNumber, result);
+});
+
+app.post('/speichern6', (req, res) => {
+  const challengeNumber = req.body.challengeNumber;
+  const result = req.body.result;
+
+  saveResult(res, jsonDataGruppe6, dataFilePathGruppe6, challengeNumber, result);
+});
+
+function readJsonData(dataFilePath) {
+  if (fs.existsSync(dataFilePath)) {
+    const data = fs.readFileSync(dataFilePath, 'utf8');
+    return JSON.parse(data);
+  }
+  return [];
+}
+
+function saveResult(res, jsonData, dataFilePath, challengeNumber, result) {
   // Add new result to the data
   if (!Array.isArray(jsonData)) {
     jsonData = []; // Initialize as an empty array if not already
   }
-  switch (challengeNumber) {
-    case 1:
-      jsonData.push({ challenge1: challengeNumber, result: result });
-      break;
-    case 2:
-      jsonData.push({ challenge2: challengeNumber, result: result });
-      break;
-    case 3:
-      jsonData.push({ challenge3: challengeNumber, result: result });
-      break;
-    case 4:
-      jsonData.push({ challenge4: challengeNumber, result: result });
-      break;
-    case 5:
-      jsonData.push({ challenge5: challengeNumber, result: result });
-      break;
-    case 6:
-      jsonData.push({ challenge6: challengeNumber, result: result });
-      break;
-  }
-  // Save the updated data to the JSON file
-  fs.writeFileSync(dataFilePathGruppe1, JSON.stringify(jsonData));
 
-});
+  const resultObject = {};
+  resultObject[`challenge${challengeNumber}`] = result;
+  jsonData.push(resultObject);
+
+  // Save the updated data to the JSON file
+  fs.writeFileSync(dataFilePath, JSON.stringify(jsonData));
+  res.sendStatus(200);
+}
 
 app.listen(port, () => {
   console.log("App is listening on port", port);
