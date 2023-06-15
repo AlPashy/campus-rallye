@@ -25,6 +25,10 @@
         
         .card {
             max-width: 500px;
+            max-height: 500px;
+            height: 700px;
+            width: 90%;
+            margin: auto;
             padding: 40px;
             background-color: #fff;
             border-radius: 5px;
@@ -66,46 +70,28 @@
         button:hover {
             background-color: turquoise;
         }
+        
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="card">
-            <h1>Challenge Title</h1>
-            <p>Challenge Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>Instructions:</p>
+            <h1>Challenge Beispiel</h1>
+            <p>Start Gebäude 104: Bild</p>
+            <img src="https://img.speedweek.com/i/5/5b2ac8a89d8843a38dcb5e9d854cfe79.jpg?preset=i750" alt="Lewis Hamilton Bild" height="180px">
+            <p>Anweisungen:</p>
             <ol>
-                <li>Step 1: Do something</li>
-                <li>Step 2: Do something else</li>
-                <li>Step 3: Do one more thing</li>
+                <li>Schritt 1: Wort Rätsel</li>
+                <li>Schritt 2: Wörter passend zu Atruvia finden</li>
+                <li>Schritt 3: Gehe zur Ergebnisseite und trage dein Ergebnis ein</li>
             </ol>
-            <form action="/speichern" method="post">
-                <label for="result">Enter your result:</label>
-                <input type="text" id="result" name="eingabe" placeholder="Enter your result" required>
-                <button type="submit" value="Speichern">Submit</button>
-            </form>
-            <button id="nextButton" style="display: none;">Next Challenge</button>
+            <p>Vielleicht danach zur Ergebnisseite kommen?</p>
         </div>
     </div>
-    
-    <script>
-        var challengeForm = document.querySelector("form");
-        var nextButton = document.getElementById("nextButton");
-
-        challengeForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-            var result = document.getElementById("result").value;
-            // Hier kannst du die Ergebnisse verarbeiten oder validieren
-
-            // Speichern der Ergebnisse im localStorage
-            var challengeResults = JSON.parse(localStorage.getItem("challengeResults")) || [];
-            challengeResults.push(result);
-            localStorage.setItem("challengeResults", JSON.stringify(challengeResults));
-
-            // Anzeigen des nächsten Buttons, um zur nächsten Challenge zu gelangen
-            nextButton.style.display = "block";
-
-            console.log("Ergebnis:", result); // Ergebnis auf der Konsole ausgeben
-        });
-
-        nextButton.addEventListener
+</body>
+</html>
