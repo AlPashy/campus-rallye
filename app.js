@@ -105,6 +105,4 @@ function saveResult(res, jsonData, dataFilePath, challengeNumber, result) {
   res.sendStatus(200);
 }
 
-app.listen(port, () => {
-  console.log("App is listening on port", port);
-});
+app.listen(process.env.PORT || port, () => console.log(`Listening on port ${port}`));
